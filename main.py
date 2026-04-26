@@ -36,11 +36,14 @@ class FlowScorer:
         status = "filtered" if self.processed_data is not None else "fetched" if self.raw_data is not None else "empty"
         return f"{self.__class__.__name__} | Season: {self.year} | Teams: {self.teams} | Status: {status}"
 
-teams = ['Sacramento Kings', 'Boston Celtics', 'Golden State Warriors']
-year = "2022-23"
+def main():
+    teams = ['Sacramento Kings', 'Boston Celtics', 'Golden State Warriors']
+    year = "2022-23"
 
-scorer = FlowScorer(teams, year)
-scorer.fetch_data().filter_data()
+    scorer = FlowScorer(teams, year)
+    scorer.fetch_data().filter_data()
 
-print(scorer)
+    print(scorer)
 
+if __name__ == "__main__":
+    main()
